@@ -33,12 +33,65 @@ This tool was built to **remove that barrier** by allowing learners to practice 
 - LVM commands used in RHCSA:
   - `pvcreate`, `vgcreate`, `lvcreate`
   - `lvextend`, `vgs`, `lvs`, `pvs`
+ 
+How to Use
+1. Clone the repository
+git clone https://github.com/<your-username>/lvm-lab-builder.git
+cd lvm-lab-builder
 
----
+2. Make the script executable
+chmod +x lvm_setup.sh
 
-## 📁 What the Script Creates
+3. Run the script
+./lvm_setup.sh
 
-```text
-~/lvm_lab/
+
+Follow the on-screen instructions carefully.
+
+⚠️ Requirements
+
+Linux system
+
+Bash shell
+
+At least 10GB free disk space
+
+dd, losetup, df (available on most Linux distros)
+
+Run as a user with sufficient permissions
+
+🧑‍🎓 Who This Is For
+
+RHCSA candidates
+
+Linux students and beginners
+
+Linux instructors and tutors
+
+Anyone learning LVM without access to physical disks
+
+🧼 Cleanup (Optional)
+
+To remove the lab:
+
+Detach loop devices
+
+Delete ~/lvm_lab
+
+(Manual cleanup is intentional to encourage learning.)
+
+📜 License
+
+MIT License — free to use, modify, and share.
+
+🙌 Author
+
+Chioma
+Linux Instructor | RHCSA Certified| Bash Scripting Enthusiast
+
+Built to learn. Built to teach.
+
+
+
 ├── disk1.img   (5GB virtual disk)
 ├── disk2.img   (5GB virtual disk)
