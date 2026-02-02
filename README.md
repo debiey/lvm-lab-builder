@@ -51,7 +51,7 @@ This tool is intentionally **educational, interactive, and non-destructive**.
 cd lvm-lab-builder
 **
 2. Make the script executable
-chmod +x lvm_setup.sh
+chmod +x lvm_setup.sh cleanup_lvm_lab.sh
 
 3. Run the script
 ./lvm_setup.sh
