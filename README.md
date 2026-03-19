@@ -1,101 +1,88 @@
-# LVM Lab Builder 🐧
+# LVM Lab Builder
 
-An interactive Bash tool that builds a **safe, virtual Logical Volume Manager (LVM) practice environment** using loop devices.
+A lightweight, offline Linux lab environment for practicing Logical Volume Management (LVM) using loop devices.
 
-This project was created to help learners **practice LVM hands-on without access to physical disks or paid lab platforms**, making it especially useful for **RHCSA exam preparation**.
+## 🚀 Overview
 
----
+LVM Lab Builder simulates real disk environments without requiring physical hardware. It allows users to safely create, manage, and destroy LVM setups for hands-on learning and experimentation.
 
-## 🎯 Motivation
-
-While preparing for RHCSA, accessing official Red Hat labs can be challenging due to unstable or limited internet access.  
-To overcome this, I built a local solution that allows **full LVM practice on any Linux system**, using virtual disks created with Bash scripting.
-
-This tool is intentionally **educational, interactive, and non-destructive**.
+This project is designed for:
+- RHCSA / Linux certification preparation
+- Linux students and instructors
+- System administrators practicing storage management
 
 ---
 
-## ✨ Features
+## 🧠 Key Concept
 
-- 📦 Creates **two 5GB virtual disks** (10GB total)
-- 🔁 Attaches disks using **loop devices**
-- 🧠 Step-by-step guided execution
-- 🎨 Color-coded terminal output
-- ⏸️ Pauses between steps for learning and explanation
-- ⚠️ Disk space verification before execution
-- 🧪 Ideal for LVM practice and demonstrations
+Instead of using real disks, this tool:
 
----
+1. Creates virtual disk images (`.img`)
+2. Attaches them as loop devices
+3. Builds LVM structures on top
 
-## 🛠️ Skills & Concepts Practiced
+[ Disk Image ] → [ Loop Device ] → [ PV ] → [ VG ] → [ LV ]
 
-- Logical Volume Manager (LVM)
-- Physical Volumes (PV)
-- Volume Groups (VG)
-- Logical Volumes (LV)
-- Linux storage fundamentals
-- Bash scripting best practices
-- Loop devices (`losetup`)
+⚙️ Features
 
----
+Automated LVM setup (PV, VG, LV)
+Safe testing using loop devices
+Interactive step-by-step execution
+Clean teardown (no system damage)
+Fully offline operation
 
-## 📁 Lab Structure
+📦 Requirements
 
-```text
-~/lvm_lab/
-├── disk1.img   (5GB)
-├── disk2.img   (5GB)
-## How to Use
+Linux system
+Root privileges
+lvm2 installed
+Install dependencies:
+
+sudo apt install lvm2 -y
+▶️ Usage
 1. Clone the repository
-**git clone https://github.com/debiey/lvm-lab-builder.git
+git clone https://github.com/debiey/lvm-lab-builder.git
 cd lvm-lab-builder
-**
-2. Make the script executable
-chmod +x lvm_setup.sh cleanup_lvm_lab.sh
 
-3. Run the script
-./lvm_setup.sh
+2. Run setup
+sudo bash scripts/lvm_setup.sh
+3. Cleanup lab
+sudo bash scripts/cleanup_lvm_lab.sh
 
+🔍 What This Builds
 
-Follow the on-screen instructions carefully.
+2 virtual disks
+Physical volumes (PV)
+Volume group (VG)
+Logical volume (LV)
 
-⚠️ Requirements
+⚠️ Safety
 
-Linux OS
+This tool uses loop devices and does not modify your real disks.
 
-Bash shell
+However, always review scripts before running with sudo.
 
-At least 10GB free disk space
+🎯 Learning Outcomes
 
-Standard Linux utilities: dd, df, losetup
+After using this lab, you will understand:
 
-Sufficient permissions to attach loop devices
+How LVM works (PV, VG, LV)
+Disk abstraction in Linux
+Storage layering concepts
+Real-world system administration workflows
 
-🧼 Cleanup
+🚧 Future Improvements
 
-A separate cleanup script is provided to safely remove the lab when done.
+Challenge mode (task-based learning)
+Filesystem and mounting integration
+Automated validation checks
+Logging and replay functionality
 
-🧑‍🎓 Intended Audience
+👤 Author
 
-RHCSA candidates
-
-Linux students and self-learners
-
-Linux instructors and tutors
-
-Anyone learning Linux storage concepts
+Chioma Obiagboso
+Linux Instructor | System Builder | Open Source Enthusiast
 
 📜 License
 
-MIT License — free to use, modify, and distribute.
-
-🙌 Author
-
-Chioma
-Linux Instructor | RHCSA Candidate | Bash Scripting Enthusiast
-
-Built to learn. Built to teach.
-
-
-
-
+MIT License
