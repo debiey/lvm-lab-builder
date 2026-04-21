@@ -1,88 +1,94 @@
-# LVM Lab Builder
+# 🧱 LVM Lab Builder
 
-A lightweight, offline Linux lab environment for practicing Logical Volume Management (LVM) using loop devices.
+> A safe, offline Linux lab for mastering Logical Volume Management — no real disks needed.
 
-## 🚀 Overview
-
-LVM Lab Builder simulates real disk environments without requiring physical hardware. It allows users to safely create, manage, and destroy LVM setups for hands-on learning and experimentation.
-
-This project is designed for:
-- RHCSA / Linux certification preparation
-- Linux students and instructors
-- System administrators practicing storage management
+[![Shell](https://img.shields.io/badge/language-Bash-green)](https://www.gnu.org/software/bash/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Linux-orange)](https://www.linux.org/)
 
 ---
 
-## 🧠 Key Concept
+## 🔍 The Problem
 
-Instead of using real disks, this tool:
+Practicing LVM on a real system is risky — one wrong command can wipe your storage. Most learners either skip LVM entirely or break their machines trying to learn it.
 
-1. Creates virtual disk images (`.img`)
-2. Attaches them as loop devices
-3. Builds LVM structures on top
+**LVM Lab Builder solves this** by simulating real disks using loop devices, giving you a full, destructible LVM environment that can't touch your actual hardware.
 
+---
+
+## 🚀 What It Does
+
+LVM Lab Builder spins up a complete LVM stack in seconds:
+
+```
 [ Disk Image ] → [ Loop Device ] → [ PV ] → [ VG ] → [ LV ]
+```
 
-⚙️ Features
+- Creates 2 virtual disk images (`.img`)
+- Attaches them as loop devices
+- Builds Physical Volumes → Volume Groups → Logical Volumes
+- Tears everything down cleanly when done
 
-Automated LVM setup (PV, VG, LV)
-Safe testing using loop devices
-Interactive step-by-step execution
-Clean teardown (no system damage)
-Fully offline operation
+---
 
-📦 Requirements
+## ✅ Built For
 
-Linux system
-Root privileges
-lvm2 installed
-Install dependencies:
+| User | Use Case |
+|------|----------|
+| 🎓 RHCSA candidates | Hands-on exam prep |
+| 👨‍🏫 Linux instructors | Classroom demos without risk |
+| 🛠️ Sysadmins | Safely testing storage configs |
+| 🐧 Linux learners | Learning LVM from scratch |
 
-sudo apt install lvm2 -y
-▶️ Usage
-1. Clone the repository
+---
+
+## ⚡ Quick Start
+
+```bash
+# Clone the repo
 git clone https://github.com/debiey/lvm-lab-builder.git
 cd lvm-lab-builder
 
-2. Run setup
+# Install LVM2 if needed
+sudo apt install lvm2 -y
+
+# Build the lab
 sudo bash scripts/lvm_setup.sh
-3. Cleanup lab
+
+# Tear it down when done
 sudo bash scripts/cleanup_lvm_lab.sh
+```
 
-🔍 What This Builds
+> ⚠️ Uses loop devices only — your real disks are never touched. Still, review scripts before running with `sudo`.
 
-2 virtual disks
-Physical volumes (PV)
-Volume group (VG)
-Logical volume (LV)
+---
 
-⚠️ Safety
+## 🧠 What You'll Learn
 
-This tool uses loop devices and does not modify your real disks.
+After using this lab you'll be able to:
+- Create and manage Physical Volumes, Volume Groups, and Logical Volumes
+- Understand disk abstraction and storage layering in Linux
+- Perform real sysadmin-level storage workflows safely
 
-However, always review scripts before running with sudo.
+---
 
-🎯 Learning Outcomes
+## 🗺️ Roadmap
 
-After using this lab, you will understand:
+- [ ] Challenge mode with task-based exercises
+- [ ] Filesystem creation and mount point integration
+- [ ] Automated answer validation
+- [ ] Session logging and replay
 
-How LVM works (PV, VG, LV)
-Disk abstraction in Linux
-Storage layering concepts
-Real-world system administration workflows
+---
 
-🚧 Future Improvements
+## 👤 Author
 
-Challenge mode (task-based learning)
-Filesystem and mounting integration
-Automated validation checks
-Logging and replay functionality
+**Chioma Obiagboso** — Linux Systems Engineer · AI Tools Developer · RHCSA Certified
 
-👤 Author
+[GitHub](https://github.com/debiey) · [Mimir](https://github.com/debiey/mimir)
 
-Chioma Obiagboso
-Linux Instructor | System Builder | Open Source Enthusiast
+---
 
-📜 License
+## 📜 License
 
-MIT License
+MIT — free to use, fork, and learn from.
